@@ -10,7 +10,7 @@ include(ExternalProject)
 file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 
 ExternalProject_Add(opencv2_src
-  URL https://github.com/Itseez/opencv/archive/2.4.11.zip
+  #URL https://github.com/Itseez/opencv/archive/2.4.11.zip
   UPDATE_COMMAND ""
   CONFIGURE_COMMAND cd ../opencv2_src && cmake 
     -DWITH_TBB=ON
@@ -29,6 +29,7 @@ ExternalProject_Add(opencv2_src
     -DWITH_OPENCL=OFF
     -DBUILD_opencv_gpu=OFF 
     -DBUILD_opencv_ts=OFF 
+    -DWITH_FFMPEG=OFF 
     -DBUILD_TESTS=OFF -DBUILD_opencv_ts=OFF .
   BUILD_COMMAND cd ../opencv2_src && make -j8
   INSTALL_COMMAND cd ../opencv2_src && make install -j8
